@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>License</title>
+
+<link href="../Css/layout.css" rel="stylesheet" type="text/css" />
+
+<link rel="shortcut icon" href='../images/jelly.png' >
+
+</head>
+<!-- Head End -->
+
+<body>
+
+<div class="container">
+  <div class="header"><a href="#"></a> 
+  
+<ul id="Menu" class="none">
+    <li><a href="../Intro/Intro.html">Introduction</a></li>
+    <li><a href="../1/Q1.html">Bus of Balls</a></li>
+    <li><a href="../2/Q2.html">Liquid Layout</a></li>
+    <li><a href="../3/Q3.html">License to Ill</a></li>
+    <li><a href="../4/video.html">Video</a></li>
+</ul>
+    <h3>&nbsp;</h3>
+    <h3>Q3. You own a license plate manufacturing company. Write a program that takes a population and determines the simplest pattern that will produce enough unique plates. Since all the plates that match the pattern will be generated, find the pattern that produces the least excess plates. Use a combination of letters (A-Z) and numbers (0-9). </h3>
+    <p>&nbsp;</p>
+    
+  </div>
+  <!-- Header End -->
+  
+  <div class="content">
+  	<h2><i>License</i></h2>
+    	<p>First off, this code is far from correct, but I've made it this far so like hell am I not submitting something</p>
+    <br/>
+    	<p>So lets go over my faults, I had tried to come up with a code in Javascript but im not even going to display that code since its pretty much the same as my Java code but with more errors. I read and watched a few tutorials for Java and got a graps on some basics, but in the end two things brought me down, 1) comeing up with a code for the pattern and 2) saving the file as an applet and inserting it into my HTML.</p>
+    
+    <br/>
+    <p><b>Thoughts about the pattern code:</b>
+    <br/>
+    First I came up with a pattern for the letters and numbers
+    <br/>
+    We have 1 letter pattern and 1 number pattern
+    <br/>
+    The simplest way to get the least amount of excess plates is to use the pattern 10, 10, 26
+    <br/>
+    10 for 1 number
+    <br/>
+    10, 10 for 2 numbers
+    <br/>
+    and 26 for 1 letter
+    <br/>
+    <br/>
+    <b>Example Patterns: </b>
+    <br/>
+    1N for 10 and under
+    <br/>
+    2N for 20 and under
+    <br/>
+    1L for 26 and under
+    <br/>
+    1L, 1N for 36 and under
+    <br/>
+    1L, 2N for 46 and under
+    <br/>
+    2L for 52 and under
+    <br/>
+    and so on...
+    <br/>
+    <br/>
+    What I wanted to come up with was a code that took the users input and generated a number larger then it using the example above, the larger number would then give the most sutable pattern for least excess, but due to lack of time and noobishness I wasnt able to create such a code :(
+    
+    </p>
+    <CENTER>
+	<TABLE BORDER>
+	<TD BGCOLOR=#EEEEDD>
+<pre>
+import java.util.Scanner;
+
+
+public class pop 
+{
+	static Scanner userInput = new Scanner(System.in);
+	
+		public static void main(String[] args)
+		{
+			System.out.println("Give Desired Population: ");
+            
+			//user input code "popEntered"
+			int popEntered = userInput.nextInt();
+			{
+            	/*I tried making it so any number less then or equal to 25 would use the<br/>
+                1 number pattern, and anything over or equal to 26 would be taken care of <br/>
+                by the 1 letter pattern
+                */
+				if (popEntered <= 25)
+				{
+					int numberPat = 10;
+					int MoD = popEntered % 10;
+					int exCess = popEntered - MoD;
+					int toTal = popEntered + MoD;
+					
+					System.out.println("Population of " + popEntered);
+					System.out.println("Pattern: " );
+					System.out.println("Total Plates: " + toTal);
+					System.out.println("Excess Plates: " + popEntered % numberPat);
+					System.out.println();
+				}
+				else if (popEntered >= 26)
+				{
+					int numberPat = 26;
+					int MoD = popEntered % 26;
+					int exCess = popEntered - MoD;
+					int toTal = popEntered + MoD;
+					
+					System.out.println("Population of " + popEntered);
+					System.out.println("Pattern: ");
+					System.out.println("Total Plates: " + toTal);
+					System.out.println("Excess Plates: " + popEntered % numberPat);
+					System.out.println();
+				}
+                /*I couldn't even get an else statement to go, I had one working in my previous code, <br/>
+                but only without the user input, when I added the user input I couldnt find a <br/>
+                way to add it
+                */
+				else (?????)
+				{
+					System.out.println("Out of Business");
+				}
+			}
+		}
+
+}
+
+</pre> 
+<TR>
+</TABLE>
+</CENTER>
+
+<p><b>Example Output: </b></p>
+<TABLE BORDER>
+<TD BGCOLOR=#EEEEDD>
+<pre>
+Give Desired Population: 
+11
+Population of 11
+Pattern: //should be 2 numbers
+Total Plates: 12
+Excess Plates: 1
+</pre> 
+<TR>
+</TABLE>
+
+<TABLE BORDER>
+<TD BGCOLOR=#EEEEDD>
+<pre>
+Give Desired Population: 
+28
+Population of 28
+Pattern: //should be 1 letter, 1 number
+Total Plates: 30
+Excess Plates: 2
+</pre> 
+<TR>
+</TABLE>
+
+<TABLE BORDER>
+<TD BGCOLOR=#EEEEDD>
+<pre>
+Give Desired Population: 
+57
+Population of 57
+Pattern: //should be 2 letters, 1 number
+Total Plates: 62
+Excess Plates: 5
+</pre> 
+<TR>
+</TABLE>
+
+<TABLE BORDER>
+<TD BGCOLOR=#EEEEDD>
+<pre>
+Give Desired Population: 
+172
+Population of 172
+Pattern: //should be 7 letters
+Total Plates: 188
+Excess Plates: 16
+</pre> 
+<TR>
+</TABLE>
+
+<p><b><i>Ultimately this is going to be what defeats me, even though the deadline has passed im still going to try to get this down, I have a couple other languages im looking over and all I can do now is keep learning and keep moving foward, maybe next time around.</i></b></p>
+    
+  </div>
+  <div class="footer">
+    <h6>James Villasenor 2012 IGN Code Foo</h6>
+</div>
+
+</div>
+
+</body>
+
+</html>
